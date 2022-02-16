@@ -9,11 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
  * @param <E> Entidad que se hara consulta
  * @param <R> Repository de esa entidad
  */
-public class GenericServiceImpl<E, R extends CrudRepository<E,Long>> implements IGenericService<E>{
+public class GenericDAOImpl<E, R extends CrudRepository<E,Long>> implements GenericDAO<E>{
 
     protected final R repository;
 
-    public GenericServiceImpl(R repository) {
+    public GenericDAOImpl(R repository) {
         this.repository = repository;
     }
     

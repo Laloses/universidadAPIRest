@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * @author Eduardo Martell Hernandez Hernandez
  */
-public class PersonaServiceImpl extends GenericServiceImpl<Persona, PersonaRepository> implements IPersonaService{
+public class PersonaDAOImpl extends GenericDAOImpl<Persona, PersonaRepository> implements PersonaDAO{
 
-    public PersonaServiceImpl( PersonaRepository repository) {
+    public PersonaDAOImpl( PersonaRepository repository) {
         super(repository);
     }
 

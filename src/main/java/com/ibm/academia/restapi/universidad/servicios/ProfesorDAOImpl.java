@@ -1,7 +1,6 @@
 package com.ibm.academia.restapi.universidad.servicios;
 
 import com.ibm.academia.restapi.universidad.modelos.entidades.Persona;
-import com.ibm.academia.restapi.universidad.modelos.entidades.Profesor;
 import com.ibm.academia.restapi.universidad.repositorios.PersonaRepository;
 import com.ibm.academia.restapi.universidad.repositorios.ProfesorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Eduardo Martell Hernandez Hernandez
  */
 @Service
-public class ProfesorServiceImpl extends PersonaServiceImpl implements IProfesorService {
+public class ProfesorDAOImpl extends PersonaDAOImpl implements ProfesorDAO {
     
     @Autowired
-    public ProfesorServiceImpl(
+    public ProfesorDAOImpl(
             @Qualifier(value = "repositorioProfesor")
             PersonaRepository repository) {
         super(repository);

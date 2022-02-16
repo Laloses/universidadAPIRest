@@ -6,6 +6,6 @@ import com.ibm.academia.restapi.universidad.modelos.entidades.Profesor;
 /**
  * @author Eduardo Martell Hernandez Hernandez
  */
-public interface IProfesorService extends IPersonaService {
+public interface ProfesorDAO extends PersonaDAO {
     public Iterable<Persona> buscarProfesoresPorCarrera(String nombreCarrera);
 }

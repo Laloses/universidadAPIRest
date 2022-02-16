@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
  * @author Eduardo Martell Hernandez Hernandez
  */
 @Service
-public class AulaServiceImpl extends GenericServiceImpl<Aula, AulaRepository> implements IAulaService {
+public class AulaDAOImpl extends GenericDAOImpl<Aula, AulaRepository> implements AulaDAO {
 
     @Autowired
-    public AulaServiceImpl(AulaRepository repository) {
+    public AulaDAOImpl(AulaRepository repository) {
         super(repository);
     }
 

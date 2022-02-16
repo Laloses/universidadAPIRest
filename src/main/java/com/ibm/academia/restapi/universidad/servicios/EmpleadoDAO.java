@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  * @author Eduardo Martell Hernandez Hernandez
  */
 @Repository(value = "empleadoRepositorio")
-public interface IEmpleadoService extends IPersonaService{
+public interface EmpleadoDAO extends PersonaDAO{
     public Iterable<Persona> buscarEmpleadosPorTipo(TipoEmpleado tipoEmpleado);
 }

@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
  * @author Eduardo Martell Hernandez Hernandez
  */
 @Service
-public class CarreraServiceImpl extends GenericServiceImpl<Carrera, CarreraRepository> implements ICarreraService {
+public class CarreraDAOImpl extends GenericDAOImpl<Carrera, CarreraRepository> implements CarreraDAO {
     @Autowired
-    public CarreraServiceImpl(CarreraRepository repository) {
+    public CarreraDAOImpl(CarreraRepository repository) {
         super(repository);
     }
 

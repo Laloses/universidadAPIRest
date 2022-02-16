@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
  * @author Eduardo Martell Hernandez Hernandez
  */
 @Service
-public class PabellonServiceImpl extends GenericServiceImpl<Pabellon, PabellonRepository> implements IPabellonService {
+public class PabellonDAOImpl extends GenericDAOImpl<Pabellon, PabellonRepository> implements PabellonDAO {
 
     @Autowired
-    public PabellonServiceImpl(PabellonRepository repository) {
+    public PabellonDAOImpl(PabellonRepository repository) {
         super(repository);
     }
     

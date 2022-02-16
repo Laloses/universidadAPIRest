@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "alumnos",schema = "universidad")
 @PrimaryKeyJoinColumn(name = "persona_id")
+@EqualsAndHashCode
 public class Alumno extends Persona{
     
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})

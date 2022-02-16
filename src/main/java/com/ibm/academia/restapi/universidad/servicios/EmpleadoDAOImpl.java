@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
  * @author Eduardo Martell Hernandez Hernandez
  */
 @Service
-public class EmpleadoServiceImpl extends PersonaServiceImpl implements IEmpleadoService {
+public class EmpleadoDAOImpl extends PersonaDAOImpl implements EmpleadoDAO {
 
     @Autowired
-    public EmpleadoServiceImpl(@Qualifier("repositorioEmpleado")PersonaRepository repository) {
+    public EmpleadoDAOImpl(@Qualifier("repositorioEmpleado")PersonaRepository repository) {
         super(repository);
     }
     @Override

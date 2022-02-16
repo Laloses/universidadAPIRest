@@ -7,7 +7,7 @@ import java.util.Optional;
  *
  * @author laloses
  */
-public interface IPersonaService extends IGenericService<Persona>{
+public interface PersonaDAO extends GenericDAO<Persona>{
     public Optional<Persona> buscarPorNombreyApellido(String nombre, String apellido);
     public Optional<Persona> buscarPorDni(String dni);
 }

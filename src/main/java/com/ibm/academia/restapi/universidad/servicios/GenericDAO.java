@@ -5,7 +5,7 @@ import java.util.Optional;
 /**
  * @author Eduardo Martell Hernandez Hernandez
  */
-public interface IGenericService<E> {
+public interface GenericDAO<E> {
     
     public Optional<E> buscarPorId(Long id);
     public E guardar(E entidad);

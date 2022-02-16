@@ -1,7 +1,6 @@
 package com.ibm.academia.restapi.universidad.repositorios;
 
 import com.ibm.academia.restapi.universidad.modelos.entidades.Persona;
-import com.ibm.academia.restapi.universidad.modelos.entidades.Profesor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 

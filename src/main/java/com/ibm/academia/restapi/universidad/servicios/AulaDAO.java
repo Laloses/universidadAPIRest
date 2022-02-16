@@ -7,7 +7,7 @@ import java.util.Optional;
 /**
  * @author Eduardo Martell Hernandez Hernandez
  */
-public interface IAulaService extends IGenericService<Aula>{
+public interface AulaDAO extends GenericDAO<Aula>{
     
     public Iterable<Aula> buscarPorTipoPizarron(TipoPizarron tipoPizarron);
     

@@ -5,7 +5,7 @@ import com.ibm.academia.restapi.universidad.modelos.entidades.Pabellon;
 /**
  * @author Eduardo Martell Hernandez Hernandez
  */
-public interface IPabellonService extends IGenericService<Pabellon>{
+public interface PabellonDAO extends GenericDAO<Pabellon>{
     
     public Iterable<Pabellon> buscarPorLocalidad(String localidad);
     

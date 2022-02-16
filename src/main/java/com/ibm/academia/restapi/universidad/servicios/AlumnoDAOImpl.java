@@ -12,10 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Eduardo Martell Hernandez Hernandez
  */
 @Service
-public class AlumnoServiceImpl extends PersonaServiceImpl implements IAlumnoService {
+public class AlumnoDAOImpl extends PersonaDAOImpl implements AlumnoDAO {
 
     @Autowired
-    public AlumnoServiceImpl(
+    public AlumnoDAOImpl(
             @Qualifier(value = "repositorioAlumno")
             PersonaRepository repository) {
         super(repository);

@@ -7,6 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @author Eduardo Martell Hernandez Hernandez
  */
-public interface ICarreraService extends IGenericService<Carrera>{
+public interface CarreraDAO extends GenericDAO<Carrera>{
     Iterable<Carrera> buscarCarrerasPorProfesorNombreYApellido(String nombre, String apellido);
 }
