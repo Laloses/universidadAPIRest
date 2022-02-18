@@ -1,5 +1,6 @@
 package com.ibm.academia.restapi.universidad.modelos.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -18,6 +19,9 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,12 +39,19 @@ public class Pabellon implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotNull
+    @NotEmpty
+    @Max(value = 50, message = "Maximo 50 caracateres")
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
     
+    @NotNull
+    @NotEmpty
     @Column(name = "metros_cuadradtos")
     private String metrosCuadrados;
     
+    @NotNull
+    @NotEmpty
     @Embedded
     @AttributeOverrides({
         @AttributeOverride(name = "codigoPostal", column = @Column(name = "codigo_postal")),
@@ -49,14 +60,18 @@ public class Pabellon implements Serializable{
     private Direccion direccion;
     
     @OneToMany(mappedBy = "pabellon", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"aula"})
     private Set<Aula> aula;
     
     @OneToOne(mappedBy = "pabellon")
+    @JsonIgnoreProperties({"empleado"})
     private Empleado empleado;
     
     @Column(name = "usuario_creacion", nullable = false)
     protected String usuarioCreacion;
     
+    @NotNull
+    @NotEmpty
     @Column(name = "fecha_creacion", nullable = false)
     protected Date fechaCreacion;
     

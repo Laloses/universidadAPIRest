@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
-/** Como es abstracta, no es repository (NoRepositoryBean)
+/** 
+ * @NoRepositoryBean Como es la clase Persona es abstracta, no es repository
  * @author Eduardo Martell Hernandez Hernandez
  */
 @NoRepositoryBean

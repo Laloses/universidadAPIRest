@@ -13,6 +13,11 @@ import javax.persistence.InheritanceType;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,21 +38,35 @@ public abstract class Persona implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     
+    @NotNull
+    @NotEmpty
+    @Max(value = 40, message = "Maximo 40 caracateres")
+    @Min(value = 3, message = "Mininmo 3 caracateres")
     @Column(name = "nombre", nullable = false, length = 40)
     protected String nombre;
     
+    @NotNull
+    @NotEmpty
+    @Max(value = 3, message = "Mininmo 3 caracateres")
     @Column(name = "apellido", nullable = false, length = 40)
     protected String apellido;
     
+    @NotNull
+    @NotEmpty
+    @Size(min = 9, max = 10, message = "Deben ser 10 caracteres")
     @Column(name = "dni", nullable = false, length = 10, unique = true)
     protected String dni;
     
+    @NotNull
+    @NotEmpty
     @Column(name = "direccion")
     protected Direccion direccion;
     
     @Column(name = "usuario_creacion", nullable = false)
     protected String usuarioCreacion;
     
+    @NotNull
+    @NotEmpty
     @Column(name = "fecha_creacion", nullable = false)
     protected Date fechaCreacion;
     

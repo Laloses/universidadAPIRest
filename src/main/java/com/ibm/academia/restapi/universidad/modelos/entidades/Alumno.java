@@ -1,5 +1,6 @@
 package com.ibm.academia.restapi.universidad.modelos.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -26,6 +27,7 @@ public class Alumno extends Persona{
     
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "carrera_id", foreignKey = @ForeignKey(name = "FK_CARRERA_ID"))
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "alumnos"})
     private Carrera carrera;
 
     public Alumno(Long id, String nombre, String apellido, String dni, Direccion direccion, String usuarioCreacion) {

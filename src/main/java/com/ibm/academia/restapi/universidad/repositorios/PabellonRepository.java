@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface PabellonRepository extends CrudRepository<Pabellon, Long>{
     public Iterable<Pabellon> findByDireccionLocalidad(String localidad);
     
-    public Iterable<Pabellon> findByNombre(String nombre);
+    public Iterable<Pabellon> findByNombreIgnoreCase(String nombre);
 }

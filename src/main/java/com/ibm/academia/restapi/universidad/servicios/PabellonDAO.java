@@ -10,4 +10,6 @@ public interface PabellonDAO extends GenericDAO<Pabellon>{
     public Iterable<Pabellon> buscarPorLocalidad(String localidad);
     
     public Iterable<Pabellon> buscarPorNombrePabellon(String nombre);
+    
+    public Pabellon actualizar(Long pabellonId, Pabellon pabellon);
 }

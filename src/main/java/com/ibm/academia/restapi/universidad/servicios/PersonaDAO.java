@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface PersonaDAO extends GenericDAO<Persona>{
     public Optional<Persona> buscarPorNombreyApellido(String nombre, String apellido);
     public Optional<Persona> buscarPorDni(String dni);
+    
+    public Persona actualizar(Long personaId, Persona persona);
 }

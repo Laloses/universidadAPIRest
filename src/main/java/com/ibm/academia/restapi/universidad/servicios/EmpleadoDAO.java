@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository(value = "empleadoRepositorio")
 public interface EmpleadoDAO extends PersonaDAO{
     public Iterable<Persona> buscarEmpleadosPorTipo(TipoEmpleado tipoEmpleado);
+    public Empleado actualizar(Long empleadoId, Empleado empleado);
+    public Persona asociarPabellonEmpleado(Long pabellonId, Long empleadoId);
 }

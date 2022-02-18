@@ -1,8 +1,8 @@
 package com.ibm.academia.restapi.universidad.modelos.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -17,6 +17,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,21 +37,29 @@ public class Carrera implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotNull
+    @NotEmpty
     @Column(name = "nombre",nullable = false, length = 40)
     private String nombre;
     
+    @Positive(message = "El valor debe ser mayor a cero")
     @Column(name = "cantidad_materias",nullable = false, length = 3)
     private Integer cantidadMaterias;
     
+    @Positive(message = "El valor debe ser mayor a cero")
     @Column(name = "cantidad_anios", nullable = false, length = 2)
     private Integer cantidadAnios;
     
     @OneToMany(mappedBy = "carrera", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"carrera"})
     private Set<Alumno> alumnos;
     
     @ManyToMany(mappedBy = "carreras", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"carrera"})
     private Set<Profesor> profesores;
     
+    @NotNull
+    @NotEmpty
     @Column(name = "usuario_creacion", nullable = false)
     protected String usuarioCreacion;
     

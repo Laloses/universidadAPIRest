@@ -1,5 +1,6 @@
 package com.ibm.academia.restapi.universidad.modelos.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.math.BigDecimal;
 import java.util.Set;
 import javax.persistence.CascadeType;
@@ -11,6 +12,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,12 +26,15 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
+@EqualsAndHashCode
 @Table(name = "profesores", schema = "universidad")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Profesor extends Persona {
     
-   @Column(name = "sueldo", nullable = false, length = 11)
-   private BigDecimal sueldo;
+    @NotNull
+    @NotEmpty
+    @Column(name = "sueldo", nullable = false, length = 11)
+    private BigDecimal sueldo;
    
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
@@ -35,7 +42,8 @@ public class Profesor extends Persona {
             joinColumns = @JoinColumn(name = "profesor_id"),
             inverseJoinColumns = @JoinColumn(name = "carrera_id")
             )
-   private Set<Carrera> carreras;
+    @JsonIgnoreProperties({"profesores"})
+    private Set<Carrera> carreras;
 
     public Profesor(BigDecimal sueldo, Long id, String nombre, String apellido, String dni, Direccion direccion, String nombreUsuario) {
         super(id, nombre, apellido, dni, direccion, nombreUsuario);
