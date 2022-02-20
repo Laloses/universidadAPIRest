@@ -1,5 +1,7 @@
 package com.ibm.academia.restapi.universidad.modelos.entidades;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
@@ -17,7 +19,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,7 +33,18 @@ import lombok.ToString;
 @ToString
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "personas", schema = "universidad")
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+	include = JsonTypeInfo.As.PROPERTY,
+	property = "tipo"
+)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Alumno.class, name = "alumno"),
+    @JsonSubTypes.Type(value = Profesor.class, name = "profesor"),
+    @JsonSubTypes.Type(value = Empleado.class, name = "empleado")
+})
+//@Table(name = "personas", schema = "universidad")
+@Table(name = "personas")
 public abstract class Persona implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,13 +59,14 @@ public abstract class Persona implements Serializable{
     
     @NotNull
     @NotEmpty
-    @Max(value = 3, message = "Mininmo 3 caracateres")
+    @Max(value = 70, message = "Maximo 70 caracateres")
+    @Min(value = 3, message = "Mininmo 3 caracateres")
     @Column(name = "apellido", nullable = false, length = 40)
     protected String apellido;
     
     @NotNull
     @NotEmpty
-    @Size(min = 9, max = 10, message = "Deben ser 10 caracteres")
+    @Min(value = 5, message = "Deben ser mínimo 5 caracteres")
     @Column(name = "dni", nullable = false, length = 10, unique = true)
     protected String dni;
     

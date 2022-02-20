@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.mock;
@@ -29,6 +30,7 @@ public class ProfesorDAOImplTest {
 
     @Test
     @DisplayName("TEST: buscarProfesoresPorCarrera de PabellonDAOImpl")
+    @Disabled
     void buscarProfesoresPorCarrera(){
         //Given
         String carrera = "Ing. Sistemas";

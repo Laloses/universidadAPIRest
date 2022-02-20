@@ -37,7 +37,8 @@ import lombok.ToString;
 @Getter
 @NoArgsConstructor
 @ToString
-@Table(name = "aulas",schema = "universidad")
+//@Table(name = "aulas",schema = "universidad")
+@Table(name = "aulas")
 public class Aula implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

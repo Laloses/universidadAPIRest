@@ -20,9 +20,9 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@Table(name = "alumnos",schema = "universidad")
+//@Table(name = "alumnos",schema = "universidad")
+@Table(name = "alumnos")
 @PrimaryKeyJoinColumn(name = "persona_id")
-@EqualsAndHashCode
 public class Alumno extends Persona{
     
     @ManyToOne(optional = true, cascade = {CascadeType.PERSIST, CascadeType.MERGE})

@@ -33,7 +33,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@Table(name = "pabellones", schema = "universidad")
+//@Table(name = "pabellones", schema = "universidad")
+@Table(name = "pabellones")
 public class Pabellon implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

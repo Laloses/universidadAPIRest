@@ -27,8 +27,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@EqualsAndHashCode
-@Table(name="empleados",schema = "universidad")
+//@Table(name="empleados",schema = "universidad")
+@Table(name="empleados")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Empleado extends Persona{
    @NotNull

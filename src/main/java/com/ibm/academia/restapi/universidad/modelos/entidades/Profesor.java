@@ -26,8 +26,9 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
-@EqualsAndHashCode
-@Table(name = "profesores", schema = "universidad")
+@EqualsAndHashCode(callSuper = true)
+//@Table(name = "profesores", schema = "universidad")
+@Table(name = "profesores")
 @PrimaryKeyJoinColumn(name = "persona_id")
 public class Profesor extends Persona {
     

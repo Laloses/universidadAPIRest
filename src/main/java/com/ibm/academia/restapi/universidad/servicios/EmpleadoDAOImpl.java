@@ -2,17 +2,12 @@ package com.ibm.academia.restapi.universidad.servicios;
 
 import com.ibm.academia.restapi.universidad.enumeradores.TipoEmpleado;
 import com.ibm.academia.restapi.universidad.excepciones.NotFoundException;
-import com.ibm.academia.restapi.universidad.modelos.entidades.Carrera;
 import com.ibm.academia.restapi.universidad.modelos.entidades.Empleado;
 import com.ibm.academia.restapi.universidad.modelos.entidades.Pabellon;
 import com.ibm.academia.restapi.universidad.modelos.entidades.Persona;
-import com.ibm.academia.restapi.universidad.modelos.entidades.Profesor;
 import com.ibm.academia.restapi.universidad.repositorios.EmpleadoRepository;
 import com.ibm.academia.restapi.universidad.repositorios.PersonaRepository;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
